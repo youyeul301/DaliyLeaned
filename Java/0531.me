@@ -52,12 +52,15 @@
         인텔리제이 (내용수정)-->(commit) 로컬저장소(워크스페이스) -->(push) 원격저장소
         원격 저장소간의 이동 (fork)
         허락을 받고 수정사항을 원격저장소에 저장(pull request)
-        merge 각각의 프로젝트를 합칠떄 사용
-        conflic(merge 상황에서 문제발생)
-        branch 협업시 main branch를 베이스로 각각 main branch를 복사하여 새로운 branch 생성 후 작업한다
-        checkout branch간의 이동
+        merge - 각각의 프로젝트를 합칠때 사용
+        conflic - (merge 상황에서 문제발생)
+        branch - 협업시 main branch를 베이스로 각각 main branch를 복사하여 새로운 branch 생성 후 작업한다
+        checkout - branch간의 이동
+	pull - master branch 를 동기화 할때 사용
         자세한 이미지 노션 0531 첨부
         
 5 - organizations (협업 그룹화)
-      프로필 선택 -> your organizations 선택 -> new organizations 선택 -> 무료 생성
-      setting - Member privileges - base permissions - write
+      협업 프로젝트 생성 프로필 선택 -> your organizations 선택 -> new organizations 선택 -> 무료 생성
+      권힌 부여 setting - Member privileges - base permissions - write 
+      각각의 개인 수정물 결합 comepare request로 수정된 내용 요청 --> merge request --> confirm 
+      conflict 발생시 - resolve 실행 - 충돌난 구문 수정 - confirm - merge request 다시 실행
