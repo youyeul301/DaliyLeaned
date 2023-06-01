@@ -36,7 +36,7 @@
     로컬저장소 숨김항복 .git - 로컬저장소
     pull버튼을 누르면 깃에서 변경된 내용이 업데이트 됨
 
- 4 - intellij
+## 4 intellij
         깃 호스팅 서버 - 깃허브(오픈소스) , 깃랩(CI/CD) , 비트버킷(CI/CD)유료버전 소스트리개발회사
         성격  - 원격저장소(remote repository) 서비스를 제공 및 접근 용이,원하는 사람에게만 공유 가능
 	              버전관리  언제든지 이전 버전을 사용할수 있게 관리해줌
@@ -56,7 +56,7 @@
 	개인 환경 설정값 제외- gitignore파일에 구문추가 idea 및 idea/gradle.xml 구문추가 
         자세한 이미지 노션 0531 첨부
         
-5 - organizations (협업 그룹화)
+## 5 organizations (협업 그룹화)
       협업 프로젝트 생성 프로필 선택 -> your organizations 선택 -> new organizations 선택 -> 무료 생성
       권힌 부여 setting - Member privileges - base permissions - write 
       각각의 개인 수정물 결합 comepare request로 수정된 내용 요청 --> merge request --> confirm 
