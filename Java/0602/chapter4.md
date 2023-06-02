@@ -1,4 +1,5 @@
-# 조건문 if,ifelse,ifelseif,switch
+# 기본기 복습
+## 조건문 if,ifelse,ifelseif,switch
 ```
 [if]
 if(조건식) {
@@ -30,7 +31,7 @@ switch(비교할변수) {
 ```
 <hr/>
 
-# 반복문 for,while,doWhile
+## 반복문 for,while,doWhile
 ```
 [for]
 for(초기식; 조건식; 증감식) {
@@ -53,7 +54,7 @@ do {
 ```
 <hr/>
 
-# break,continue
+## break,continue
 *  break는 모든 반복문을 종료하는 것이 아닌, 자신에게 가장 인접한 반복문 실행만 멈춘다.
 *  continue는 해당 반복문의 반복 회차를 중간에 멈추고 다시 증감식으로 넘어가게 해준다.
 
