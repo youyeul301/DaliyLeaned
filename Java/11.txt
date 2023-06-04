@@ -1,0 +1,79 @@
+제네릭은 클래스나 메소드에서 사용할 내부 데이터 타입을 컴파일 시에 지정하는 방법을 말한다.
+		 *  컴파일 시에 미리 타입 검사를 시행하게 되면 클래스나 메소드 내부에서 사용되는 객체의 타입 안정성을 높일 수 있으며,
+		 *  (잘못된 타입인 경우 컴파일 에러를 발생시킴)
+		 *  반환값에 대한 타입 변환 및 타입 검사에 들어가는 코드 생략이 가능해진다.
+		 *  (instanceof 비교 및 다운캐스팅 작성 불필요)
+		 *  JDK 1.5 버전부터 추가된 문법이다.
+
+제네릭 프로그래밍
+		 *  데이터의 형식에 의존하지 않고 하나의 값이 여러 다른 데이터 타입들을 가질 수 있는 기술에 중점을 두어
+		 *  재사용성을 높일 수 있는 프로그래밍 방식이다.
+
+제네릭 설정은 클래스 선언부 마지막 부분에 다이아몬드 연산자를 이용하여 작성하게 된다.
+	 *  다이아몬드 연산자 내부에 작성하는 영문자는 관례상 대문자로 작성한다.
+
+다이아몬드 연산자 내부에 작성한 T는 타입 변수라고 부른다.
+	 *  타입변수를 자료형 대신 사용할 것인데, 가상으로 존재하는 타입이며
+	 *  T가 아닌 다른 영문자를 사용해도 무방하다.
+	 *  또한 여러 개의 타입변수를 작성할 때는 ,를 이용해서 여러 개 기술할 수 도 있다.
+	 *  사용하는 쪽에서는 작성한 제네릭 클래스를 이용할 시
+	 *  실제 사용할 타입을 타입변수 자리에 맞춰서 넣어주게 되면 컴파일이 시점에서 타입이 결정되게 된다.
+
+제네릭 클래스 작성 시 extends 키워드를 이용하면
+		 *  특정 타입만 사용하도록 제한을 걸 수 있다.
+		 * */
+		
+		/* 설명.
+		 *  토끼의 후손이거나 토끼인 경우에만 타입으로 사용 가능하다.
+		 *  그 외의 타입으로 타입 지정 시 컴파일 단계에서 에러를 발생시킨다.
+		 * */
+		/* 설명. Animal 타입으로는 제네릭 클래스 인스턴스 생성이 불가능하다. */
+//		RabbitFarm<Animal> farm1 = new RabbitFarm<>();
+		
+		/* 설명. Mammal 타입으로는 제네릭 클래스 인스턴스 생성이 불가능하다. */
+//		RabbitFarm<Mammal> farm2 = new RabbitFarm<>();
+		
+		/* 설명. 전혀 다른 타입을 이용해서도 인스턴스 생성이 불가능하다. */
+//		RabbitFarm<Snake> farm3 = new RabbitFarm<>();
+		
+		/* 설명. Rabbit 타입이나 Rabbit의 후손으로는 인스턴스 생성이 가능하다. */
+		RabbitFarm<Rabbit> farm4 = new RabbitFarm<>();
+		RabbitFarm<Bunny> farm5 = new RabbitFarm<>(); 
+		RabbitFarm<DrunkenBunny> farm6 = new RabbitFarm<>(); 
+
+
+와일드카드(WildCard)
+		 *  제네릭 클래스 타입의 객체를 메소드의 매개변수로 받을 때,
+		 *  그 객체의 타입 변수를 제한할 수 있다.
+		 *  <?> : 제한 없음
+		 *  <? extends Type> : 와일드카드의 상한 제한 (Type과 Type의 후손을 이용해 생성한 인스턴스만 인자로 사용 가능)
+		 *  <? super Type> : 와일드카드 하한 제한 (Type과 Type의 부모를 이용해 생성한 인스턴스만 인자로 사용 가능)
+		 * */
+
+		WildCardFarm wildCardFarm = new WildCardFarm();
+		
+		/* 설명. 매개변수의 타입 제한이 없는 경우 */
+		/* 설명. 농장 생성 자체가 불가능한 것은 매개변수로 사용할 수 없다. */
+//		wildCardFarm.anyType(new RabbitFarm<Mammal>(new Mammal()));
+//		wildCardFarm.anyType(new RabbitFarm<Reptile>(new Reptile()));
+		
+		/* 설명. 어떠한 토끼 농장이던 매개변수로 사용이 가능하다. */
+		wildCardFarm.anyType(new RabbitFarm<Rabbit>(new Rabbit()));
+		wildCardFarm.anyType(new RabbitFarm<Bunny>(new Bunny()));
+		wildCardFarm.anyType(new RabbitFarm<DrunkenBunny>(new DrunkenBunny()));
+		
+		/* 설명.
+		 *  Bunny이거나 Bunny의 후손 토끼농장만 매개변수로 사용이 가능하고
+		 *  상위타입으로 만든 토끼농장은 매개변수로 사용이 불가능하다.
+		 * */
+//		wildCardFarm.extendsType(new RabbitFarm<Rabbit>(new Rabbit()));
+		wildCardFarm.extendsType(new RabbitFarm<Bunny>(new Bunny()));
+		wildCardFarm.extendsType(new RabbitFarm<DrunkenBunny>(new DrunkenBunny()));
+		
+		/* 설명.
+		 *  Bunny이거나 Bunny의 상위 타입 토끼 농장만 매개변수로 사용이 가능하고
+		 *  하위타입으로 만든 토끼 농장은 매개변수로 사용이 불가능하다.
+		 * */
+		wildCardFarm.superType(new RabbitFarm<Rabbit>(new Rabbit()));
+		wildCardFarm.superType(new RabbitFarm<Bunny>(new Bunny()));
+//		wildCardFarm.superType(new RabbitFarm<DrunkenBunny>(new DrunkenBunny()));
