@@ -3,15 +3,15 @@ public class CheckMemberBirthday {
     public void checkBirth(String date) throws ParseException {
 
         SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
-        Date parsingDate=sdf.parse(date);
+        Calendar cal=Calendar.getInstance();// Calendar 객체 생성
+        cal.setTime(sdf.parse(date)); //String 타입을 Calendar타입으로 convert 하기 위함
 
-        Calendar cal=Calendar.getInstance();
-        cal.setTime(parsingDate); //Date 타입 시간을 Calendar 시간으로 변경 Date 타입의 내장함수들이 deprecated 상태로 된게 많아서 사용
-        LocalDate now=LocalDate.now();
+
+        LocalDate now=LocalDate.now(); //날짜 까지만 비교하기 떄문에 LocalDate 객체를 사용
         LocalDate paramDate20=LocalDate.of(cal.get(Calendar.YEAR)+19,cal.get(Calendar.MONTH)+1,cal.get(Calendar.DATE));
 
 
-        if(1!=now.compareTo(paramDate20)){
+        if(0>=now.compareTo(paramDate20)){
             throw new IllegalArgumentException("미성년입니다.");
         }
         //LocalDate compareTo()
