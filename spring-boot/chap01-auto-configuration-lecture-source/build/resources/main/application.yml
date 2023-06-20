@@ -1,0 +1,8 @@
+test:
+  greeting:  hi!!!
+  array:  안녕, 반가워
+
+  value:  hell world
+  #우선순위 시스템환경변수 - properties - yml 순
+#우선순위가 properties가 높아서 같은 키를 갖을경우 properties 값이 불러와진다
+username:  홍길동
