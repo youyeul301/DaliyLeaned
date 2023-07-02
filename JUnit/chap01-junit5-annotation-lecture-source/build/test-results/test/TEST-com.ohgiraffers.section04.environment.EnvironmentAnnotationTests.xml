@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" tests="10" skipped="4" failures="0" errors="0" timestamp="2023-06-27T23:48:27" hostname="DESKTOP-0KHO81C" time="0.013">
+  <properties/>
+  <testcase name="testMAC()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testJRE8()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testDisabledEnvironmentVariable()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0"/>
+  <testcase name="testDisabledJRE8()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0"/>
+  <testcase name="testDisabledFromJRE8ToJRE11()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="testFromJRE8ToJRE11()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0"/>
+  <testcase name="testJRE8AndJRE11()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0"/>
+  <testcase name="testEnvironmentVariable()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.001"/>
+  <testcase name="testDisabledOnWindows()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testWindowsAndLinux()" classname="com.ohgiraffers.section04.environment.EnvironmentAnnotationTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

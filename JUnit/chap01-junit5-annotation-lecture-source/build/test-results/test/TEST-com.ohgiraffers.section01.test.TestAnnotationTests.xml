@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ohgiraffers.section01.test.TestAnnotationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-27T23:48:26" hostname="DESKTOP-0KHO81C" time="0.017">
+  <properties/>
+  <testcase name="displayName 우선순위 테스트" classname="com.ohgiraffers.section01.test.TestAnnotationTests" time="0.016"/>
+  <testcase name="테스트 메소드1" classname="com.ohgiraffers.section01.test.TestAnnotationTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

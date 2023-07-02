@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ohgiraffers.section02.lifecycle.LifecycleAnnotationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-27T23:48:26" hostname="DESKTOP-0KHO81C" time="0.004">
+  <properties/>
+  <testcase name="test1()" classname="com.ohgiraffers.section02.lifecycle.LifecycleAnnotationTests" time="0.002"/>
+  <testcase name="test2()" classname="com.ohgiraffers.section02.lifecycle.LifecycleAnnotationTests" time="0.001"/>
+  <system-out><![CDATA[beforeAll
+beforeEach
+test1
+afterEach
+beforeEach
+test2
+afterEach
+afterAll
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
