@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ohgiraffers.assertions.section02.assertj.AssertJTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-28T08:39:52" hostname="DESKTOP-0KHO81C" time="0.064">
+  <properties/>
+  <testcase name="튜플로 추출하여 테스트하기&#x1f602;" classname="com.ohgiraffers.assertions.section02.assertj.AssertJTests" time="0.064"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
