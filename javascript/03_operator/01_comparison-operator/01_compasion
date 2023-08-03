@@ -1,0 +1,29 @@
+// 동등/일치 비교 연산자
+//동등 비교(loose equality) 연산자와 일치 비교(strict equality) 연산자는 비교하는 엄격성의 정도가 다르다.
+//동등 비교(==, !=) 연산자는 먼저 암묵적 타입 변환을 통해 타입을 일치시킨 후 같은 값인지 비교한다.
+//일치 비교(===, !==) 연산자는 타입과 값이 모두 일치하는지 비교한다.
+
+console.log('apple' || 'banana');       // appleconsole.log('apple' && 'banana');       // banana
+
+//hort circuit evaluation(단축 평가)
+//표현식을 평가하는 도중 평가 결과가 확정 된 경우 나머지 평가 과정을 생략하는 것을 말한다.
+
+//ES11 operator
+//ES11(ECMAScript2020)에서 도입된 연산자
+
+//optional chaining operator(옵셔널 체이닝 연산자)
+
+
+var obj = null;var val = obj?.value;console.log(val);
+
+
+//좌항의 피연산자가 null 또는 undefined인 경우 undefined를 반환하고 그렇지 않으면 우항의 프로퍼티 참조를 이어간다.
+
+//nullish coalescing operator(null 병합 연산자)
+
+
+var test = null ?? '기본 값';console.log(test);
+
+
+// 좌항의 피연산자가 null 또는 undefined인 경우 우항의 피연산자를 반환하고, 그렇지 않으면 좌항의 피연산자를 반환한다.
+//변수에 기본 값을 설정할 때 유용하다.
