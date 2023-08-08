@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            margin:0 auto;
+            background-color: gray;
+            height: 100%;
+        }
+        #root{
+            text-align: center;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const {useState} = React;
+        function App(){
+            
+            const[toLists,setToList] = useState([
+                {num:1,tolist:'할일 목록을 추가할 것'}
+            ])
+
+            const [text,setText] = useState('');
+            const [nextNum,setNextNum] = useState(2);
+
+            const onChangeHandler = e=>setText(e.target.value);
+            const onClickHandler = ()=>{
+                const changelists= toLists.concat({
+                    num: nextNum,
+                    tolist :text
+                })
+
+                setNextNum(nextNum+1);
+                setToList(changelists);
+                setText('');
+                console.log(toLists)
+            }
+            const onRemove = num =>{
+                const changelists = toLists.filter(list => list.num !== num)
+                setToList(changelists);
+            }
+
+            const [textDecoration, setTextDecoration] = useState('none');
+            
+            const [isChecked, setIsChecked] = useState(false);
+            const handleChecked = (e) =>{
+                setIsChecked(e.target.checked);
+                isChecked ? setTextDecoration('none') : setTextDecoration('line-through');
+            }
+
+            const ToDoList = toLists.map(list =>                                                
+                                                <li key={list.num}>
+                                                    <input type='checkbox' checked={isChecked} onChange={handleChecked} id={list.num}/>
+                                                    <label style={{margin:10,textDecoration}}>{list.tolist}</label>
+                                                    <button onClick={
+                                                        () => onRemove(list.num)}>X</button>
+                                                </li>
+            )
+            // <li>
+            //                         <input type='checkbox' />
+            //                         <label style={{margin:10}}>할일 목록을 추가할 것</label>
+            //                         <button>X</button>
+            //                     </li>
+            return (
+                <>
+                    <div style={{backgroundColor : 'black', height:'10%',margin :0, textAlign:'center',display:'inline-Block',width:'100%'}}>
+                        <h1 style={{color:'white'}}>오늘의 할일! {new Date().toLocaleDateString()}</h1>
+                    </div>
+                    <div style={{margin:'3% auto 7%',width:'28%',height:'65%'}}>
+                        <h3 style={{textAlign:'center'}}>ToDo-List</h3>
+                        <div style={{textAlign:'left',backgroundColor : 'white',display:'inline-Block',width:'100%',height: '100%',border:'1px solid black'}}>
+                            <ul style={{listStyle:'none'}}>
+                                {ToDoList}
+                            </ul>
+                        </div>
+                        <input value={text} onChange={onChangeHandler}/>
+                        <button onClick={onClickHandler}>추가하기</button>
+                    </div>
+                    <div style={{backgroundColor : 'black', height:'10%',margin :0, textAlign:'center',display:'inline-Block',width:'100%'}}>
+                        <h3 style={{color:'white'}}>Copyright 2022.team-greedy all rights reserved.</h3>
+                    </div>
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <App/>
+        )
+    </script>
+</body>
+</html>
