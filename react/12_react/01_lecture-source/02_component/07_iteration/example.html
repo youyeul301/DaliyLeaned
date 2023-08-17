@@ -30,17 +30,18 @@
         function App(){
             
             const[toLists,setToList] = useState([
-                {num:1,tolist:'할일 목록을 추가할 것'}
+                {num:1,tolist:'할일 목록을 추가할 것',isChecked:false}
             ])
 
             const [text,setText] = useState('');
-            const [nextNum,setNextNum] = useState(2);
+            const [nextNum,setNextNum] = useState([]);
 
             const onChangeHandler = e=>setText(e.target.value);
             const onClickHandler = ()=>{
                 const changelists= toLists.concat({
                     num: nextNum,
-                    tolist :text
+                    tolist :text,
+                    isChecked :false
                 })
 
                 setNextNum(nextNum+1);
@@ -55,25 +56,28 @@
 
             const [textDecoration, setTextDecoration] = useState('none');
             
-            const [isChecked, setIsChecked] = useState(false);
-            const handleChecked = (e) =>{
-                setIsChecked(e.target.checked);
-                isChecked ? setTextDecoration('none') : setTextDecoration('line-through');
+            const handleChecked = (num,check) =>{
+                const testList = [...toLists];
+                const index= toLists.findIndex( list => list.num === num);
+                
+                testList[index] = {
+                    ...testList[index],
+                    isChecked: !check
+                };
+
+                setToList(testList);
             }
+            
 
             const ToDoList = toLists.map(list =>                                                
                                                 <li key={list.num}>
-                                                    <input type='checkbox' checked={isChecked} onChange={handleChecked} id={list.num}/>
-                                                    <label style={{margin:10,textDecoration}}>{list.tolist}</label>
+                                                    <input type='checkbox' checked={list.isChecked}  onChange={()=>handleChecked(list.num,list.isChecked)} />
+                                                    <label style={{margin:10,textDecoration: list.isChecked ? 'line-through' : ''}}>{list.tolist}</label>
                                                     <button onClick={
                                                         () => onRemove(list.num)}>X</button>
                                                 </li>
             )
-            // <li>
-            //                         <input type='checkbox' />
-            //                         <label style={{margin:10}}>할일 목록을 추가할 것</label>
-            //                         <button>X</button>
-            //                     </li>
+            
             return (
                 <>
                     <div style={{backgroundColor : 'black', height:'10%',margin :0, textAlign:'center',display:'inline-Block',width:'100%'}}>
