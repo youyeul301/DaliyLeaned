@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const {useState,useEffect} = React
+        const prompt = String(prompt('문자 입력'))       
+        
+        const getTimeWithMilliseconds = date => {
+            return `${date.getTime()}`;
+        }
+        
+
+
+        function App(){
+            const [isTrue,setIsTrue] =useState(false);
+            const [time,setTime] =useState(0);
+            
+            const handleOnKeyPress = e => {
+            if (e.key === 'Enter') {
+                if( e.target.value === prompt){
+                    const lastTime= new Date();
+                    console.log(parseInt(getTimeWithMilliseconds(lastTime)))
+                    console.log(time)
+                    alert (parseInt(getTimeWithMilliseconds(lastTime)) - parseInt(time) + "(ms)");
+                }                
+            }
+            };
+
+            useEffect(
+                () => {
+                    const firstTime = getTimeWithMilliseconds(new Date());
+                    setTime(firstTime);
+                    console.log(firstTime)
+                },                
+                []
+            )
+
+            return(
+                <>
+                    <h1>{prompt}</h1>
+                    <input
+                        onKeyUp={handleOnKeyPress}
+                    />
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+    </script>
+</body>
+</html>
